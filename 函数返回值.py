@@ -65,7 +65,7 @@ print(g1(),g2(),g3())
 练习
 利用闭包返回一个计数器函数，每次调用它返回递增整数
 '''
-
+'''
 def createCounter():
 	def counter(q):
 		def cc():
@@ -75,12 +75,27 @@ def createCounter():
 	for nn in range(1,100):
 		ccf.append(counter(nn))
 	return ccf
-
+'''
 #counterA = createCounter()
 
 # 有问题，返回值不对
+# 写于2018-10-3 
+'''
 
+'''
+def createCounter():
+	L = [0]
+	def counter():
+		L[0] += 1
+		return L[0]
+	return counter
 
+counterA = createCounter()
+print(counterA(), counterA(), counterA(), counterA(), counterA()) # 1 2 3 4 5
+'''
+闭包中内部函数要修改外部函数局部变量L，只有两个办法：
+1.把局部变量变成一个容器（变成可变对象），然后就OJBK了
 
-
+2.在内部函数里给外部变量加一个 nonlocal 声明，指示内部函数去其他领域获取这个变量
+'''
 os.system('pause')
