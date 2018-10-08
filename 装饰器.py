@@ -82,8 +82,37 @@ def f()
 	pass
 
 '''
+'''
+既实现二级结构，又实现三级结构
+那么就要检验参数
+如果传入func，那么显然是二级结构，返回wrapper
+如果是传入字符串，那么是三级结构，返回decorator，decorator里又返回wrapper
 
+'''
+def lo(text):
+	if isinstance(text, str):
+		def decorator2(func):
+			@functools.wraps(func)
+			def wrapper5(*args,**kw):
+				print('%s %s():' % (text,func.__name__))
+				return func(*args,**kw)
+			return wrapper5
+		return decorator2
+	else:
+		@functools.wraps(text)
+		def wrapper6(*args,**kw):
+			print('call %s():' % text.__name__)
+			return text(*args,**kw)
+		return wrapper6
+# 测试
+@lo
+def now3():
+	print('now3：',time.ctime())
+now3()
 
-
+@lo('hello')
+def now4():
+	print('now4：',time.ctime())
+now4()
 
 os.system("pause")
