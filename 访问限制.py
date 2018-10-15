@@ -9,13 +9,40 @@ class students(object):
 	def __init__(self,name,score):
 		self.__name = name
 		self.__score = score
-
-	def print_score(self):
-		print('%s,%s' % (self.__name,self.__score))
 # 这样已经从外部无法访问实例变量了
 # 这样就确保了外部代码不能随意修改对象内部的状态，这样通过访问限制的保护，代码更加健壮。
 
+# 如果外部代码想要获取name和score，可以增加方法：
 
+	def get_name(self):
+		return self.__name
+	def get_score(self):
+		return self.__score
+# 又要允许代码修改score，增加方法：
+# 在方法中对参数做检查，避免传入无效或者错误的参数
+	def get_score1(self,score):
+		if 0 <= score <= 100:
+			self.__score = score
+		else:
+			raise ValueError('bad score')
+		
+
+	def print_score(self):
+		print('%s,%s' % (self.__name,self.__score))
+
+# 练习 
+# 把student对象的gender字段对外隐藏起来，用方法代替
+class Stu(object):
+	"""docstring for Stu"""
+	def __init__(self, name,gender):
+		self.__name = name
+		self.__gender = gender
+	def get_name1(self):
+		return self.__name
+	def get_gender(self):
+		return self.__gender
+		
+# 练习不对
 
 
 os.system('pause')
