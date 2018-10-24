@@ -26,5 +26,21 @@ class Weekday(Enum):
 print('Weekday.Mon:',Weekday.Mon)
 print('Weekday.Sat.value:',Weekday.Sat.value)
 
+# 练习 把 stud的gender属性改造为枚举类型，可以避免使用字符串
+class Gender(Enum):
+	Male = 0
+	FeMale = 1
+class Stud(object):
+	def __init__(self,name,gender):
+		self.name = name
+		self.gender = gender
+Gender = Enum('gender',('Male','FeMale'))
+# 测试:
+bart = Stud('Bart', Gender.Male)
+if bart.gender == Gender.Male:
+    print('测试通过!')
+else:
+    print('测试失败!')
+
 
 os.system('pause')
