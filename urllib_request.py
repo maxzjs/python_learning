@@ -1,8 +1,6 @@
 # 2018.12.12
 # maxzjs
-# -*- coding:utf-8 -*-
-# urllib 操作URL功能
-# Get
+# urllib
 
 from urllib import request
 
