@@ -12,6 +12,6 @@ req = requests.get('https://www.23us.so/full.html',headers=header[random.randint
 result = req.content
 result = result.decode('utf-8')
 html = etree.HTML(result)
-
-
-print(result)
+txt_title = html.xpath('//td[@class="L"]/a/text()')
+txt_src = html.xpath('//td[@class="L"]/a/@href')
+print(txt_title,txt_src)
