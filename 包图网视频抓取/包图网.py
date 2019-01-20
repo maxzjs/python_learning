@@ -29,7 +29,7 @@ class Spider(object):
             return
 
 
-        self.write_file(video_src, video_title)
+        #self.write_file(video_src, video_title)
         self.start_work(next_page)
 
     def write_file(self, video_src, video_title):
