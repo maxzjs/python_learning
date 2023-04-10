@@ -14,6 +14,11 @@ WORD_THREAD = 50
 
 # 将需要 ping 的 ip 加入队列
 IP_QUEUE = Queue()
+
+
+
+
+
 for i in range(1,255):
     IP_QUEUE.put('10.3.33.'+str(i))
 
