@@ -4,7 +4,7 @@
 #2.凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
 #3.集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
 #4.Python的for循环本质上就是通过不断调用next()函数实现的，例如：
-for z in [1,2,3,4,5]
+#for z in [1,2,3,4,5]
 #
 # 自我总结 iterable 是迭代类型（迭代对象），iterator是迭代器，list/dict/str是迭代类型不是迭代器，可以通过iter()函数得到一个迭代器
 #

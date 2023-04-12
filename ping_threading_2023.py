@@ -50,14 +50,18 @@ def ping_ip():
         res = subprocess.call('ping -n 2 -w 5 %s' % ip, stdout=subprocess.PIPE)  # linux 系统将 '-n' 替换成 '-c'
         # 打印运行结果
         # 判断ip通不通，通着打印，不通丢弃
+        Note = open('ping_True.txt', mode='a')
         if res != 0:
             pass
         else:
             print(ip, True if res == 0 else False)
+            Note.write(ip)
+            Note.write('\n')
+        Note.close()
 
 
 if __name__ == '__main__':
-    print("批量ping多个IP地址")
+    print("批量ping多个IP地址(网段)")
     threads = []
     start_time = time.time()
     for i in range(WORD_THREAD):

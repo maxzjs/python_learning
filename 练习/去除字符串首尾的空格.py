@@ -5,12 +5,12 @@ import os
 def trim(s):
 	b = 1
 	while(b==1):
-	    if (s[:1]==' '):
-	            s=s[1:]
-	    elif (s[-1:]==' '):
-	            s=s[:-1]
-	    else:
-	            b=0    
+		if (s[:1]==' '):
+				s=s[1:]
+		elif (s[-1:]==' '):
+				s=s[:-1]
+		else:
+				b=0
 	print(s)
 	return s
 trim('1hello ')
